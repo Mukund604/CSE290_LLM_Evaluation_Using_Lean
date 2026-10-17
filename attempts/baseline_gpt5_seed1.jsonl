@@ -1,0 +1,10 @@
+{"problem": "aime_1988_p3", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 39.29, "error": ""}
+{"problem": "aime_1991_p1", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 37.91, "error": ""}
+{"problem": "aime_1996_p5", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 37.7, "error": ""}
+{"problem": "algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 35.8, "error": ""}
+{"problem": "algebra_amgm_prod1toneq1_sum1tongeqn", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 40.0, "error": ""}
+{"problem": "algebra_apb4leq8ta4pb4", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 29.93, "error": ""}
+{"problem": "algebra_sqineq_2unitcircatblt1", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 30.97, "error": ""}
+{"problem": "amc12_2001_p2", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 33.57, "error": ""}
+{"problem": "amc12a_2008_p4", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 38.77, "error": ""}
+{"problem": "amc12a_2009_p5", "proof": "", "model": "gpt-5", "seed": 1, "condition": "baseline", "raw_response": "", "elapsed_s": 34.69, "error": ""}

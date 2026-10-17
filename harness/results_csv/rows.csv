@@ -1,0 +1,79 @@
+category,condition,duration_s,model,passed,problem,seed,stderr_excerpt,stratum
+tactic_failed,baseline,158.83,anthropic/claude-opus-4.7,False,aime_1988_p3,0,80000gn/T/tmphb2r3v5h.lean:28:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern   logb 8 in the target expression   ,B
+tactic_failed,baseline,158.57,anthropic/claude-opus-4.7,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,0,0000gn/T/tmp_q_ugtl5.lean:22:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern   ?a - ?m.150 ≤ ?a - ?m.151 in the t,D
+heavy_tactic_failed,baseline,265.35,anthropic/claude-opus-4.7,False,aime_1996_p5,0,"000gn/T/tmpimem7td2.lean:106:75: error: linarith failed to find a contradiction case h1.h a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f",B
+sorry_present,baseline,136.23,anthropic/claude-opus-4.7,False,amc12_2001_p2,0,000gn/T/tmp327g53v1.lean:12:8: warning: declaration uses `sorry` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmp327g53v1.lean:32:65: warnin,C
+unfocused_goals,baseline,159.1,anthropic/claude-opus-4.7,False,aime_1991_p1,0,0000gn/T/tmpit_qr5dg.lean:23:34: error: unsolved goals x y : ℕ h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 * y + x * y ^ 2 = 880 hx : 0 < x h,B
+passed,baseline,157.04,anthropic/claude-opus-4.7,True,algebra_sqineq_2unitcircatblt1,0,,F
+passed,baseline,158.49,anthropic/claude-opus-4.7,True,algebra_apb4leq8ta4pb4,0,,F
+unfocused_goals,baseline,158.27,anthropic/claude-opus-4.7,False,algebra_amgm_prod1toneq1_sum1tongeqn,0,"0000gn/T/tmplter4mcw.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).",F
+passed,baseline,69.03,anthropic/claude-opus-4.7,True,amc12a_2009_p5,0,,C
+tactic_failed,baseline,69.12,anthropic/claude-opus-4.7,False,amc12a_2008_p4,0,0000gn/T/tmpxx3w6qab.lean:24:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern in the current goal  case succ X : ℝ,C
+passed,baseline,153.17,anthropic/claude-opus-4.7,True,algebra_sqineq_2unitcircatblt1,1,,F
+unfocused_goals,baseline,73.58,anthropic/claude-opus-4.7,False,amc12_2001_p2,1,0000gn/T/tmpv2gidhcc.lean:23:25: error: unsolved goals n : ℕ h₂ : (Nat.digits 10 n).length = 2 h₃ : n = (Nat.digits 10 n).prod + (Nat.,C
+tactic_failed,baseline,164.03,anthropic/claude-opus-4.7,False,aime_1996_p5,1,80000gn/T/tmpycczykzw.lean:17:9: error: Tactic `rcases` failed: `right✝ : b = c → False` is not an inductive datatype /var/folders/np/g_hjvs79,B
+sorry_present,baseline,163.76,anthropic/claude-opus-4.7,False,algebra_amgm_prod1toneq1_sum1tongeqn,1,000gn/T/tmp2_0ar_ib.lean:12:8: warning: declaration uses `sorry` ,F
+unfocused_goals,baseline,164.63,anthropic/claude-opus-4.7,False,aime_1991_p1,1,0000gn/T/tmp17m5rczq.lean:26:28: error: unsolved goals x y : ℕ h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 * y + x * y ^ 2 = 880 hx : 0 < x h,B
+unfocused_goals,baseline,164.22,anthropic/claude-opus-4.7,False,aime_1988_p3,1,0000gn/T/tmptojh61n0.lean:13:95: error: unsolved goals x : ℝ h₀ : 1 < x h₁ : logb 2 (logb 8 x) = logb 8 (logb 2 x) hl2 : Real.log 2 > ,B
+heavy_tactic_failed,baseline,164.28,anthropic/claude-opus-4.7,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,1,80000gn/T/tmpt0gu48un.lean:21:2: error: linarith failed to find a contradiction case h x : ℝ hx : x > 0 h1 : √2 ≥ 0 h2 : √2 * √2 = 2 hx,D
+passed,baseline,163.98,anthropic/claude-opus-4.7,True,algebra_apb4leq8ta4pb4,1,,F
+passed,baseline,45.79,anthropic/claude-opus-4.7,True,amc12a_2009_p5,1,,C
+tactic_failed,baseline,46.72,anthropic/claude-opus-4.7,False,amc12a_2008_p4,1,80000gn/T/tmpcjbpwdp9.lean:18:2: error: Tactic `simp` failed with a nested error: maximum recursion depth has been reached use `set_option m,C
+heavy_tactic_failed,baseline,216.21,anthropic/claude-opus-4.7,False,aime_1996_p5,2,"0000gn/T/tmp540e7wr4.lean:40:64: error: linarith failed to find a contradiction case h1.h a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f",B
+passed,baseline,183.16,anthropic/claude-opus-4.7,True,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,2,,D
+tactic_failed,baseline,182.81,anthropic/claude-opus-4.7,False,amc12_2001_p2,2,0000gn/T/tmph91dawhh.lean:23:25: error: Tactic `simp` failed with a nested error: maximum recursion depth has been reached use `set_option m,C
+other,baseline,184.44,anthropic/claude-opus-4.7,False,aime_1991_p1,2,/var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmpgmnv8y3j.lean:19:4: error: interval_cases failed: could not find upper bound on x ,B
+unfocused_goals,baseline,182.6,anthropic/claude-opus-4.7,False,algebra_amgm_prod1toneq1_sum1tongeqn,2,"0000gn/T/tmpevibnjm8.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).",F
+passed,baseline,182.84,anthropic/claude-opus-4.7,True,algebra_sqineq_2unitcircatblt1,2,,F
+passed,baseline,182.98,anthropic/claude-opus-4.7,True,algebra_apb4leq8ta4pb4,2,,F
+tactic_failed,baseline,182.72,anthropic/claude-opus-4.7,False,aime_1988_p3,2,80000gn/T/tmp46yr690h.lean:19:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern   L in the target expression   ?m.88,B
+passed,baseline,52.58,anthropic/claude-opus-4.7,True,amc12a_2009_p5,2,,C
+tactic_failed,baseline,53.19,anthropic/claude-opus-4.7,False,amc12a_2008_p4,2,80000gn/T/tmp10pz858x.lean:19:2: error: Tactic `simp` failed with a nested error: maximum recursion depth has been reached use `set_option m,C
+unfocused_goals,baseline,145.29,google/gemini-2.5-pro,False,algebra_amgm_prod1toneq1_sum1tongeqn,0,"0000gn/T/tmpoiqwau2p.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).",F
+unfocused_goals,baseline,145.3,google/gemini-2.5-pro,False,aime_1991_p1,0,0000gn/T/tmpdo_4m1mg.lean:13:62: error: unsolved goals x y : ℕ h₀ : 0 < x ∧ 0 < y h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 * y + x * y ^ 2,B
+unfocused_goals,baseline,145.29,google/gemini-2.5-pro,False,aime_1996_p5,0,"0000gn/T/tmpy_olw781.lean:15:74: error: unsolved goals a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f x = x ^ 3 + 3 * x ^ 2 + 4 * x - 1",B
+unfocused_goals,baseline,145.3,google/gemini-2.5-pro,False,aime_1988_p3,0,0000gn/T/tmpqz_x06hw.lean:13:95: error: unsolved goals x : ℝ h₀ : 1 < x h₁ : logb 2 (logb 8 x) = logb 8 (logb 2 x) ⊢ logb 2 x ^ 2 = 27,B
+unfocused_goals,baseline,145.3,google/gemini-2.5-pro,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,0,"0000gn/T/tmpsp4k2n3n.lean:13:52: error: unsolved goals ⊢ ∀ x > 0, 2 - √2 ≥ 2 - x - 1 / (2 * x) ",D
+unfocused_goals,baseline,145.32,google/gemini-2.5-pro,False,algebra_apb4leq8ta4pb4,0,000gn/T/tmpwy01ej67.lean:12:101: error: unsolved goals a b : ℝ h₀ : 0 < a ∧ 0 < b ⊢ (a + b) ^ 4 ≤ 8 * (a ^ 4 + b ^ 4) ,F
+unfocused_goals,baseline,129.12,google/gemini-2.5-pro,False,algebra_apb4leq8ta4pb4,1,000gn/T/tmp1nqumwdw.lean:12:101: error: unsolved goals a b : ℝ h₀ : 0 < a ∧ 0 < b ⊢ (a + b) ^ 4 ≤ 8 * (a ^ 4 + b ^ 4) ,F
+unfocused_goals,baseline,129.12,google/gemini-2.5-pro,False,aime_1988_p3,1,0000gn/T/tmpu4uouuwq.lean:13:95: error: unsolved goals x : ℝ h₀ : 1 < x h₁ : logb 2 (logb 8 x) = logb 8 (logb 2 x) ⊢ logb 2 x ^ 2 = 27,B
+unfocused_goals,baseline,129.12,google/gemini-2.5-pro,False,aime_1996_p5,1,"0000gn/T/tmpbo_swv18.lean:15:74: error: unsolved goals a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f x = x ^ 3 + 3 * x ^ 2 + 4 * x - 1",B
+unfocused_goals,baseline,129.12,google/gemini-2.5-pro,False,aime_1991_p1,1,0000gn/T/tmpqd4lkq_h.lean:13:62: error: unsolved goals x y : ℕ h₀ : 0 < x ∧ 0 < y h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 * y + x * y ^ 2,B
+unfocused_goals,baseline,129.13,google/gemini-2.5-pro,False,algebra_amgm_prod1toneq1_sum1tongeqn,1,"0000gn/T/tmphrst97uh.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).",F
+hallucinated_lemma,baseline,129.29,google/gemini-2.5-pro,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,1,n:17:16: error(lean.unknownIdentifier): Unknown constant `Real.am_gm_inequality` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmpxpm,D
+unfocused_goals,baseline,141.2,google/gemini-2.5-pro,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,2,"0000gn/T/tmp0resjw_k.lean:13:52: error: unsolved goals ⊢ ∀ x > 0, 2 - √2 ≥ 2 - x - 1 / (2 * x) ",D
+hallucinated_lemma,baseline,141.2,google/gemini-2.5-pro,False,aime_1991_p1,2,80000gn/T/tmplsbhpfnx.lean:14:3: error: unknown tactic /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmplsbhpfnx.lean:13:62: error:,B
+unfocused_goals,baseline,141.2,google/gemini-2.5-pro,False,aime_1988_p3,2,0000gn/T/tmpr5ouyi2o.lean:13:95: error: unsolved goals x : ℝ h₀ : 1 < x h₁ : logb 2 (logb 8 x) = logb 8 (logb 2 x) ⊢ logb 2 x ^ 2 = 27,B
+unfocused_goals,baseline,141.2,google/gemini-2.5-pro,False,algebra_apb4leq8ta4pb4,2,000gn/T/tmpwbhts8an.lean:12:101: error: unsolved goals a b : ℝ h₀ : 0 < a ∧ 0 < b ⊢ (a + b) ^ 4 ≤ 8 * (a ^ 4 + b ^ 4) ,F
+unfocused_goals,baseline,141.2,google/gemini-2.5-pro,False,algebra_amgm_prod1toneq1_sum1tongeqn,2,"0000gn/T/tmp04le96xd.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).",F
+unfocused_goals,baseline,141.23,google/gemini-2.5-pro,False,aime_1996_p5,2,"0000gn/T/tmp1v9l_ocj.lean:15:74: error: unsolved goals a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f x = x ^ 3 + 3 * x ^ 2 + 4 * x - 1",B
+hallucinated_lemma,baseline,195.55,gpt-5.4,False,amc12_2001_p2,0,an:22:9: error(lean.unknownIdentifier): Unknown constant `Nat.exists_eq_of_digits_len_eq` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn,C
+passed,baseline,195.81,gpt-5.4,True,algebra_sqineq_2unitcircatblt1,0,,F
+passed,baseline,195.9,gpt-5.4,True,algebra_apb4leq8ta4pb4,0,,F
+type_mismatch,baseline,195.94,gpt-5.4,False,algebra_amgm_prod1toneq1_sum1tongeqn,0,kqfesbb3.lean:15:62: error: Application type mismatch: The argument   h₀ has type   (range n).prod a = 1 of sort `Prop` but is expect,F
+heavy_tactic_failed,baseline,195.94,gpt-5.4,False,aime_1991_p1,0,80000gn/T/tmpq5vt8lp7.lean:26:4: error: omega could not prove the goal: a possible counterexample may satisfy the constraints   c ≥ 56 ,B
+heavy_tactic_failed,baseline,196.37,gpt-5.4,False,aime_1988_p3,0,80000gn/T/tmp4ch1v1l_.lean:49:4: error: linarith failed to find a contradiction case h1.h x : ℝ h₀ : 1 < x hx : 0 < x hx_ne : x ≠ 0 hlo,B
+type_mismatch,baseline,196.57,gpt-5.4,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,0,d9j1d9kx.lean:30:44: error: Application type mismatch: The argument   hx2 has type   0 < 2 * x but is expected to have type   0 < x +,D
+hallucinated_lemma,baseline,240.15,gpt-5.4,False,aime_1996_p5,0,n:62:25: error(lean.unknownIdentifier): Unknown identifier `X` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmpczvwifee.lean:62:34: er,B
+heavy_tactic_failed,baseline,66.05,gpt-5.4,False,amc12a_2009_p5,0,80000gn/T/tmpvupuv24a.lean:14:2: error: linarith failed to find a contradiction x : ℝ h₀ : x ^ 3 - (x + 1) * (x - 1) * x = 5 ⊢ False fa,C
+hallucinated_lemma,baseline,66.4,gpt-5.4,False,amc12a_2008_p4,0,n:21:12: error(lean.unknownIdentifier): Unknown constant `Finset.prod_Icc_eq_prod_range` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/,C
+hallucinated_lemma,baseline,185.92,gpt-5.4,False,amc12_2001_p2,1,an:22:9: error(lean.unknownIdentifier): Unknown constant `Nat.exists_eq_of_digits_length_eq_two` /var/folders/np/g_hjvs7913sbbb7sc2xyjl1,C
+type_mismatch,baseline,186.12,gpt-5.4,False,algebra_amgm_prod1toneq1_sum1tongeqn,1,"poqrh7k3i.lean:31:8: error: Application type mismatch: The argument   hnonneg has type   ∀ i ∈ range n, 0 ≤ a i but is expected to ha",F
+passed,baseline,186.15,gpt-5.4,True,algebra_sqineq_2unitcircatblt1,1,,F
+passed,baseline,186.21,gpt-5.4,True,algebra_apb4leq8ta4pb4,1,,F
+type_mismatch,baseline,186.37,gpt-5.4,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,1,0000gn/T/tmpvnuyeo0s.lean:26:61: error: Type mismatch   h_amgm has type   2 * x * (1 / √2) ≤ x ^ 2 + 1 / 2 but is expected to have ty,D
+hallucinated_lemma,baseline,186.61,gpt-5.4,False,aime_1988_p3,1,n:46:12: error(lean.unknownIdentifier): Unknown identifier `sq_ne_zero` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmp6imhs1hz.lean:,B
+heavy_tactic_failed,baseline,188.18,gpt-5.4,False,aime_1991_p1,1,80000gn/T/tmp4lhj9mz1.lean:16:4: error: linarith failed to find a contradiction case h1.h x y : ℕ h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 ,B
+heavy_tactic_failed,baseline,78.74,gpt-5.4,False,amc12a_2009_p5,1,80000gn/T/tmppn4_ka8f.lean:14:2: error: linarith failed to find a contradiction x : ℝ h₀ : x ^ 3 - (x + 1) * (x - 1) * x = 5 ⊢ False fa,C
+hallucinated_lemma,baseline,78.93,gpt-5.4,False,amc12a_2008_p4,1,n:21:12: error(lean.unknownIdentifier): Unknown constant `Finset.prod_Icc_eq_prod_range` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/,C
+heavy_tactic_failed,baseline,276.73,gpt-5.4,False,aime_1996_p5,1,"80000gn/T/tmp_ja2kmsd.lean:39:4: error: linarith failed to find a contradiction case h a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f x ",B
+hallucinated_lemma,baseline,147.8,gpt-5.4,False,amc12_2001_p2,2,an:22:6: error(lean.unknownIdentifier): Unknown constant `Nat.length_digits_eq_two_iff` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T,C
+unfocused_goals,baseline,147.92,gpt-5.4,False,algebra_amgm_prod1toneq1_sum1tongeqn,2,"80000gn/T/tmpzw17o2aq.lean:19:2: error: unsolved goals case hs_prod_nonneg a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).pro",F
+passed,baseline,148.04,gpt-5.4,True,algebra_sqineq_2unitcircatblt1,2,,F
+passed,baseline,148.08,gpt-5.4,True,algebra_apb4leq8ta4pb4,2,,F
+hallucinated_lemma,baseline,148.44,gpt-5.4,False,aime_1988_p3,2,n:60:10: error(lean.unknownIdentifier): Unknown constant `Real.strictMonoOn_log.injective` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000g,B
+hallucinated_lemma,baseline,148.68,gpt-5.4,False,aime_1991_p1,2,n:19:13: error(lean.unknownIdentifier): Unknown identifier `sq_add_sq` ,B
+heavy_tactic_failed,baseline,148.99,gpt-5.4,False,algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,2,80000gn/T/tmpjku5z826.lean:38:4: error: linarith failed to find a contradiction case h x : ℝ hx : x > 0 hx2 : 0 < 2 * x hs : 0 ≤ 2 + (x,D
+hallucinated_lemma,baseline,38.86,gpt-5.4,False,amc12a_2008_p4,2,n:21:12: error(lean.unknownIdentifier): Unknown constant `Finset.prod_Icc_eq_div` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmpg1,C
+heavy_tactic_failed,baseline,38.81,gpt-5.4,False,amc12a_2009_p5,2,80000gn/T/tmpyo9e507o.lean:17:2: error: linarith failed to find a contradiction case h.h1.h x : ℝ h₀ : x ^ 3 - (x + 1) * (x - 1) * x = ,C
+timeout,baseline,600.01,gpt-5.4,False,aime_1996_p5,2,__HARNESS_TIMEOUT__,B

@@ -1,0 +1,383 @@
+problem,stratum,model,seed,condition,auto_category,duration_s,stderr_excerpt,proof,hand_category,root_cause,near_miss,notes
+aime_1988_p3,B,anthropic/claude-opus-4.7,0,baseline,timeout,180.06,__HARNESS_TIMEOUT__,"have hlog8 : Real.logb 8 = fun z => Real.logb 2 z / 3 := by
+  funext z
+  unfold Real.logb
+  have h8 : Real.log 8 = 3 * Real.log 2 := by
+    have : (8:ℝ) = 2^3 := by norm_num
+    rw [this, Real.log_pow]
+    ring
+  rw [h8]
+  field_simp
+set y := Real.logb 2 x with hy
+have hy_pos : 0 < y := by
+  rw [hy]
+  exact Real.logb_pos (by norm_num) h₀
+rw [hlog8] at h₁
+rw [hlog8] at h₁
+-- h₁ : logb 2 (y/3) = (logb 2 y) / 3
+have hy3_pos : 0 < y / 3 := by linarith
+have key : 3 * Real.logb 2 (y/3) = Real.logb 2 y := by linarith
+have : Real.logb 2 ((y/3)^3) = Real.logb 2 y := by
+  rw [Real.logb_pow]
+  push_cast
+  linarith
+have hcube_pos : 0 < (y/3)^3 := by positivity
+have heq : (y/3)^3 = y := by
+  have h2 : (1:ℝ) < 2 := by norm_num
+  exact Real.logb_injOn_pos h2 (Set.mem_Ioi.mpr hcube_pos) (Set.mem_Ioi.mpr hy_pos) this
+have : y^3 = 27 * y := by
+  have := heq
+  field_simp at this
+  linarith
+have hy_ne : y ≠ 0 := ne_of_gt hy_pos
+have : y^2 = 27 := by
+  have h3 : y * y^2 = y * 27 := by ring_nf; linarith [this]
+  exact mul_left_cancel₀ hy_ne h3
+exact this",,,,
+aime_1988_p3,B,anthropic/claude-opus-4.7,2,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"have h2 : (0:ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+have h3 : (0:ℝ) < Real.log 3 := Real.log_pos (by norm_num)
+have hx : Real.log x > 0 := Real.log_pos h₀
+set L := Real.logb 2 x with hL
+have hLpos : 0 < L := by
+  rw [hL]; unfold Real.logb; positivity
+...",,,,
+aime_1991_p1,B,anthropic/claude-opus-4.7,0,baseline,timeout,180.04,__HARNESS_TIMEOUT__,"obtain ⟨hx, hy⟩ := h₀
+have hs : x + y = 16 := by
+  have h3 : (x * y) * (x + y) = 880 := by ring_nf; ring_nf at h₂; linarith
+  -- x*y + (x+y) = 71, (x*y)*(x+y) = 880
+  -- So x*y and x+y are roots of t^2 - 71t + 880 = 0, i.e. 55 and 16
+  interval_cases x <;> interval_cases y <;> omega
+have hp : x * y = 55 := by
+  interval_cases x <;> interval_cases y <;> omega
+have : (x + y) ^ 2 = x ^ 2 + y ^ 2 + 2 * (x * y) := by ring
+have h16 : (x + y) ^ 2 = 256 := by rw [hs]
+omega",,,,
+aime_1991_p1,B,anthropic/claude-opus-4.7,1,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"obtain ⟨hx, hy⟩ := h₀
+have hsum : x + y = 16 := by
+  have h3 : x * y * (x + y) = 880 := by ring_nf; ring_nf at h₂; linarith
+  -- s + p = 71, s*p = 880, s = x+y, p = x*y
+  -- solutions: s=16, p=55 or s=55, p=16
+  -- but p = x*y ≤ ((x+y)/2)^2 = s^2/4, so s^2 ≥ 4p
+  -- if s=55, p=16: 55^2=3025 ≥ 64 ✓ actually both work algebraically
+  -- need x,y positive integers. s=16,p=55: x,y roots of t^2-16t+55=0, t=5,11 ✓
+  -- s=55,p=16: t^2-55t+16=0, no integer roots
+  interval_cases h : (x + y)
+  all_goals (first | omega | (interval_cases x <;> interval_cases y <;> omega))
+have hprod : x * y = 55 := by omega
+have : (x + y)^2 = 256 := by rw [hsum]
+have hxy2 : x^2 + 2*(x*y) + y^2 = 256 := by ring_nf; ring_nf at this; linarith
+rw [hprod] at hxy2
+omega",,,,
+aime_1996_p5,B,anthropic/claude-opus-4.7,1,baseline,timeout,180.04,__HARNESS_TIMEOUT__,"simp [List.Pairwise] at h₈
+obtain ⟨⟨hab, hac⟩, hbc, _⟩ := h₈
+have ha : a ^ 3 + 3 * a ^ 2 + 4 * a - 11 = 0 := by rw [h₀] at h₂; linarith
+have hb : b ^ 3 + 3 * b ^ 2 + 4 * b - 11 = 0 := by rw [h₀] at h₃; linarith
+have hc : c ^ 3 + 3 * c ^ 2 + 4 * c - 11 = 0 := by rw [h₀] at h₄; linarith
+have hab2 : a^2 + a*b + b^2 + 3*(a+b) + 4 = 0 := by
+  have : (a - b) * (a^2 + a*b + b^2 + 3*(a+b) + 4) = 0 := by nlinarith [ha, hb]
+  rcases mul_eq_zero.mp this with h | h
+  · exfalso; apply hab; linarith
+  · exact h
+have hac2 : a^2 + a*c + c^2 + 3*(a+c) + 4 = 0 := by
+  have : (a - c) * (a^2 + a*c + c^2 + 3*(a+c) + 4) = 0 := by nlinarith [ha, hc]
+  rcases mul_eq_zero.mp this with h | h
+  · exfalso; apply hac; linarith
+  · exact h
+have hbc2 : b^2 + b*c + c^2 + 3*(b+c) + 4 = 0 := by
+  have : (b - c) * (b^2 + b*c + c^2 + 3*(b+c) + 4) = 0 := by nlinarith [hb, hc]
+  rcases mul_eq_zero.mp this with h | h
+  · exfalso; apply hbc; linarith
+  · exact h
+-- From hab2 - hac2: (b-c)(a+b+c+3) = 0... let me derive sum
+have hsum : a + b + c = -3 := by
+  have h1 : (b - c) * (a + b + c + 3) = 0 := by nlinarith [hab2, hac2]
+  rcases mul_eq_zero.mp h1 with h | h
+  · exfalso; apply hbc; linarith
+  · linarith
+have hprod_sum : a*b + b*c + c*a = 4 := by nlinarith [hab2, hac2, hbc2, hsum]
+have hprod : a*b*c = 11 := by nlinarith [ha, hsum, hprod_sum]
+have hg1 : (a+b)^3 + r*(a+b)^2 + s*(a+b) + t = 0 := by rw [h₁] at h₅; linarith
+have hg2 : (b+c)^3 + r*(b+c)^2 + s*(b+c) + t = 0 := by rw [h₁] at h₆; linarith
+have hg3 : (c+a)^3 + r*(c+a)^2 + s*(c+a) + t = 0 := by rw [h₁] at h₇; linarith
+-- (a+b)(b+c)(c+a) = (a+b+c)(ab+bc+ca) - abc = -3*4 - 11 = -23
+-- Sum of g-roots: 2(a+b+c) = -6, so coefficient... but we need product = -t
+-- For monic cubic with roots p,q,r: x³ - (p+q+r)x² + (pq+qr+rp)x - pqr
+-- So -pqr = t, i.e., t = -(a+b)(b+c)(c+a) = 23
+-- Need to show (a+b), (b+c), (c+a) are distinct roots
+have hd1 : a + b ≠ b + c := by intro h; apply hac; linarith
+have hd2 : b + c ≠ c + a := by intro h; apply hab; linarith
+have hd3 : a + b ≠ c + a := by intro h; apply hbc; linarith
+-- Subtract hg1 - hg2: get relation
+have e1 : ((a+b) - (b+c)) * ((a+b)^2 + (a+b)*(b+c) + (b+c)^2 + r*((a+b)+(b+c)) + s) = 0 := by
+  nlinarith [hg1, hg2]
+have e1' : (a+b)^2 + (a+b)*(b+c) + (b+c)^2 + r*((a+b)+(b+c)) + s = 0 := by
+  rcases mul_eq_zero.mp e1 with h | h
+  · exfalso; apply hd1; linarith
+  · exact h
+have e2 : ((b+c) - (c+a)) * ((b+c)^2 + (b+c)*(c+a) + (c+a)^2 + r*((b+c)+(c+a)) + s) = 0 := by
+  nlinarith [hg2, hg3]
+have e2' : (b+c)^2 + (b+c)*(c+a) + (c+a)^2 + r*((b+c)+(c+a)) + s = 0 := by
+  rcases mul_eq_zero.mp e2 with h | h
+  · exfalso; apply hd2; linarith
+  · exact h
+-- From e1' - e2': linear in r
+have hr_eq : ((a+b)^2 - (c+a)^2) + ((a+b)*(b+c) - (b+c)*(c+a)) + r*((a+b) - (c+a)) = 0 := by
+  nlinarith [e1', e2']
+-- (a+b)-(c+a) = b-c, (a+b)²-(c+a)² = (b-c)(a+b+c+a) hmm
+-- Actually: (a+b)² - (c+a)² = (b-c)(a+b+c+a) = (b-c)(2a+b+c)
+-- (a+b)(b+c) - (b+c)(c+a) = (b+c)(b-c) ... wait (b+c)((a+b)-(c+a)) = (b+c)(b-c)
+-- So (b-c)(2a+b+c) + (b+c)(b-c) + r(b-c) = 0
+-- (b-c)(2a+b+c + b+c + r) = 0, so 2a+2b+2c+r = 0, r = -2(a+b+c) = 6
+have hr : r = 6 := by
+  have : (b - c) * (2*a + 2*b + 2*c + r) = 0 := by nlinarith [hr_eq]
+  rcases mul_eq_zero.mp this with h | h
+  · exfalso; apply hbc; linarith
+  · linarith
+-- Now find t. Sum: hg1 + hg2 + hg3
+-- (a+b)³+(b+c)³+(c+a)³ + r*((a+b)²+(b+c)²+(c+a)²) + s*(2(a+b+c)) + 3t = 0
+nlinarith [hg1, hg2, hg3, hsum, hprod_sum, hprod, hr, sq_nonneg (a-b), sq_nonneg (b-c), sq_nonneg (a-c), sq_nonneg (a+b+c)]",,,,
+aime_1996_p5,B,anthropic/claude-opus-4.7,2,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"simp [h₀] at h₂ h₃ h₄
+simp [h₁] at h₅ h₆ h₇
+simp [List.Pairwise] at h₈
+obtain ⟨⟨hab, hac⟩, hbc⟩ := h₈
+have e1 : (a+b) - (b+c) = a - c := by ring
+have e2 : (b+c) - (c+a) = b - a := by ring
+have e3 : (a+b) - (c+a) = b - c := by ring
+have d1 : a - c ≠ 0 := sub_ne_zero.mpr hac
+have d2 : b - a ≠ 0 := sub_ne_zero.mpr (Ne.symm hab)
+have d3 : b - c ≠ 0 := sub_ne_zero.mpr hbc
+have h56 : (a+b)^3 + r*(a+b)^2 + s*(a+b) + t - ((b+c)^3 + r*(b+c)^2 + s*(b+c) + t) = 0 := by linarith
+have h67 : (b+c)^3 + r*(b+c)^2 + s*(b+c) + t - ((c+a)^3 + r*(c+a)^2 + s*(c+a) + t) = 0 := by linarith
+-- factor: difference gives (a-c)*(...) = 0
+have f56 : (a - c) * ((a+b)^2 + (a+b)*(b+c) + (b+c)^2 + r*((a+b)+(b+c)) + s) = 0 := by nlinarith [h56]
+have f67 : (b - a) * ((b+c)^2 + (b+c)*(c+a) + (c+a)^2 + r*((b+c)+(c+a)) + s) = 0 := by nlinarith [h67]
+have g56 : (a+b)^2 + (a+b)*(b+c) + (b+c)^2 + r*((a+b)+(b+c)) + s = 0 := by
+  rcases mul_eq_zero.mp f56 with h | h
+  · exact absurd h d1
+  · exact h
+have g67 : (b+c)^2 + (b+c)*(c+a) + (c+a)^2 + r*((b+c)+(c+a)) + s = 0 := by
+  rcases mul_eq_zero.mp f67 with h | h
+  · exact absurd h d2
+  · exact h
+-- subtract these two
+have diff : (a - c) * ((a+b) + 2*(b+c) + (c+a) + r) = 0 := by nlinarith [g56, g67]
+have sum_eq : (a+b) + 2*(b+c) + (c+a) + r = 0 := by
+  rcases mul_eq_zero.mp diff with h | h
+  · exact absurd h d1
+  · exact h
+-- so r = -(2a+3b+2c) ... but actually we can find a+b+c relation
+-- Use Vieta on f: a+b+c = -3, ab+bc+ca = 4, abc = 11
+-- From f(a)=f(b)=f(c)=0 and they're distinct roots of monic cubic
+have vieta_sum : a + b + c = -3 := by
+  -- f(x) = (x-a)(x-b)(x-c) since monic cubic with these roots
+  -- need to derive from h₂ h₃ h₄
+  have hab2 : (a^3 + 3*a^2 + 4*a - 11) - (b^3 + 3*b^2 + 4*b - 11) = 0 := by linarith
+  have hbc2 : (b^3 + 3*b^2 + 4*b - 11) - (c^3 + 3*c^2 + 4*c - 11) = 0 := by linarith
+  have fab : (a - b) * (a^2 + a*b + b^2 + 3*(a+b) + 4) = 0 := by nlinarith [hab2]
+  have fbc : (b - c) * (b^2 + b*c + c^2 + 3*(b+c) + 4) = 0 := by nlinarith [hbc2]
+  have dab : a - b ≠ 0 := sub_ne_zero.mpr hab
+  have gab : a^2 + a*b + b^2 + 3*(a+b) + 4 = 0 := by
+    rcases mul_eq_zero.mp fab with h | h
+    · exact absurd h dab
+    · exact h
+  have gbc : b^2 + b*c + c^2 + 3*(b+c) + 4 = 0 := by
+    rcases mul_eq_zero.mp fbc with h | h
+    · exact absurd h d3
+    · exact h
+  have ddiff : (a - c) * (a + b + c + 3) = 0 := by nlinarith [gab, gbc]
+  rcases mul_eq_zero.mp ddiff with h | h
+  · exact absurd h d1
+  · linarith
+have vieta_prod : a*b*c = 11 := by
+  -- (x-a)(x-b)(x-c) = x^3 - (a+b+c)x^2 + (ab+bc+ca)x - abc
+  -- match with x^3 + 3x^2 + 4x - 11
+  -- abc = 11
+  -- We have h₂: a^3 + 3a^2 + 4a - 11 = 0
+  -- f(x) - (x-a)(x-b)(x-c) is a polynomial of degree ≤ 2 vanishing at a,b,c, so zero
+  -- Use vieta_sum and need ab+bc+ca = 4
+  sorry
+sorry",,,,
+amc12a_2008_p4,C,anthropic/claude-opus-4.7,0,baseline,tactic_failed,69.12,0000gn/T/tmpxx3w6qab.lean:24:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern in the current goal  case succ X : ℝ,"right; right; left
+rw [hX]
+have : ∏ k ∈ Finset.Icc (1 : ℕ) 501, ((4 : ℝ) * k + 4) / (4 * k) = 1004 := by
+  have h : ∀ n : ℕ, ∏ k ∈ Finset.Icc (1 : ℕ) (n+1), ((4 : ℝ) * k + 4) / (4 * k) = (n+2) := by
+    intro n
+    induction n with
+    | zero => simp [Finset.Icc_self]; norm_num
+    | succ m ih =>
+      rw [← Finset.prod_Ico_add_one_eq_Icc (by omega : 1 ≤ m+1+1)] at *
+      rw [Finset.prod_Ico_succ_top (by omega : 1 ≤ m+1+1)]
+      rw [Finset.prod_Ico_succ_top (by omega : 1 ≤ m+1)] at ih
+      have hm : ((m : ℝ) + 1) > 0 := by positivity
+      field_simp at ih ⊢
+      push_cast
+      nlinarith [ih, sq_nonneg ((m : ℝ) + 1)]
+  have := h 500
+  norm_num at this
+  convert this using 2
+linarith [this]",,,,
+amc12a_2008_p4,C,anthropic/claude-opus-4.7,2,baseline,tactic_failed,53.19,80000gn/T/tmp10pz858x.lean:19:2: error: Tactic `simp` failed with a nested error: maximum recursion depth has been reached use `set_option m,"right; right; right; left
+rw [hX]
+rw [show (Finset.Icc (1:ℕ) 501) = Finset.Ico 1 502 from by rfl]
+norm_num [Finset.prod_Ico_succ_top, show (1:ℕ) ≤ 502 from by norm_num]",,,,
+amc12_2001_p2,C,anthropic/claude-opus-4.7,1,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"subst h₀ h₁
+simp at h₃
+-- need bounds on n
+have hn_lb : n ≥ 10 := by ...
+have hn_ub : n < 100 := by ...
+interval_cases n <;> simp_all <;> omega",,,,
+amc12_2001_p2,C,anthropic/claude-opus-4.7,2,baseline,timeout,180.06,__HARNESS_TIMEOUT__,"have hn1 : 10 ≤ n := by
+  by_contra h
+  push_neg at h
+  interval_cases n <;> simp_all
+have hn2 : n < 100 := by
+  by_contra h
+  push_neg at h
+  -- length would be ≥ 3
+  sorry",,,,
+algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,D,anthropic/claude-opus-4.7,1,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"intro x hx
+have h1 : Real.sqrt 2 ≥ 0 := Real.sqrt_nonneg 2
+have h2 : Real.sqrt 2 * Real.sqrt 2 = 2 := Real.mul_self_sqrt (by norm_num : (2:ℝ) ≥ 0)
+have hx2 : 2 * x > 0 := by linarith
+have key : (Real.sqrt 2 * x - 1)^2 ≥ 0 := sq_nonneg _
+have hdiv : 1/(2*x) = 1/(2*x) := rfl
+-- need to relate 1/(2x) with something
+nlinarith [sq_nonneg (Real.sqrt 2 * x - 1), Real.sq_sqrt (by norm_num : (2:ℝ) ≥ 0), Real.sqrt_nonneg 2, mul_pos (by norm_num : (0:ℝ) < 2) hx, hx]",,,,
+algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,D,anthropic/claude-opus-4.7,2,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"intro x hx
+have h2 : (0:ℝ) ≤ 2 := by norm_num
+have hsqrt2 : Real.sqrt 2 ^ 2 = 2 := Real.sq_sqrt h2
+have hsqrt2_nn : 0 ≤ Real.sqrt 2 := Real.sqrt_nonneg 2
+have hkey : (Real.sqrt 2 * x - 1)^2 ≥ 0 := sq_nonneg _
+have h2x : 0 < 2 * x := by linarith
+-- expand: 2x² - 2√2 x + 1 ≥ 0
+have expand : 2 * x^2 - 2 * Real.sqrt 2 * x + 1 ≥ 0 := by
+  have := hkey
+  ring_nf at this
+  nlinarith [hsqrt2, hkey]
+-- divide by 2x: x + 1/(2x) ≥ √2
+have : x + 1/(2*x) ≥ Real.sqrt 2 := by
+  rw [ge_iff_le, ← sub_nonneg]
+  have : x + 1/(2*x) - Real.sqrt 2 = (2*x^2 - 2*Real.sqrt 2 * x + 1)/(2*x) := by
+    field_simp
+    ring
+  rw [this]
+  positivity  -- need 2x²-2√2 x+1 ≥ 0 and 2x > 0
+linarith",,,,
+algebra_amgm_prod1toneq1_sum1tongeqn,F,anthropic/claude-opus-4.7,0,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"theorem Real.geom_mean_le_arith_mean_weighted {ι : Type*} {s : Finset ι} {w f : ι → ℝ}
+    (hw : ∀ i ∈ s, 0 ≤ w i) (hf : ∀ i ∈ s, 0 ≤ f i) (hw' : ∑ i in s, w i = 1) :
+    ∏ i in s, f i ^ w i ≤ ∑ i in s, w i * f i",,,,
+algebra_amgm_prod1toneq1_sum1tongeqn,F,anthropic/claude-opus-4.7,2,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"theorem Real.geom_mean_le_arith_mean_weighted {ι : Type*} (s : Finset ι) (w z : ι → ℝ)
+    (hw : ∀ i ∈ s, 0 ≤ w i) (hw' : ∑ i ∈ s, w i = 1) (hz : ∀ i ∈ s, 0 ≤ z i) :
+    ∏ i ∈ s, z i ^ w i ≤ ∑ i ∈ s, w i * z i",,,,
+algebra_apb4leq8ta4pb4,F,anthropic/claude-opus-4.7,0,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"nlinarith [sq_nonneg (a-b), sq_nonneg (a+b), sq_nonneg (a^2-b^2), sq_nonneg (a^2+b^2), sq_nonneg a, sq_nonneg b, mul_pos h₀.1 h₀.2, sq_nonneg (a*b)]",,,,
+algebra_sqineq_2unitcircatblt1,F,anthropic/claude-opus-4.7,0,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"nlinarith [sq_nonneg (a - b), sq_nonneg (a + b)]",,,,
+algebra_sqineq_2unitcircatblt1,F,anthropic/claude-opus-4.7,1,baseline,timeout,180.05,__HARNESS_TIMEOUT__,"nlinarith [sq_nonneg (a - b), sq_nonneg (a + b)]",,,,
+algebra_sqineq_2unitcircatblt1,F,anthropic/claude-opus-4.7,2,baseline,timeout,180.06,__HARNESS_TIMEOUT__,"nlinarith [sq_nonneg (a - b), sq_nonneg (a + b)]",,,,
+aime_1991_p1,B,google/gemini-2.5-pro,2,baseline,hallucinated_lemma,141.2,80000gn/T/tmplsbhpfnx.lean:14:3: error: unknown tactic /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmplsbhpfnx.lean:13:62: error:,"_of_eq_add h₁).symm
+      -- This needs `x*y <= 71`. Let's cast to `ℤ` from the start.
+      have h₁' : (x : ℤ) * y + (x + y) = 71 := by exact_mod_cast h₁
+      have h₂' : (x : ℤ) * y * (x + y) = 880 := by
+        -- `h₂ : x * y * (x+y) = 880` was derived via `ring` from original `h₂`.
+        -- Let's do it again.
+        have : (x:ℤ)^2 * y + x * (y:ℤ)^",,,,
+aime_1988_p3,B,google/gemini-2.5-pro,0,baseline,unfocused_goals,145.3,0000gn/T/tmpqz_x06hw.lean:13:95: error: unsolved goals x : ℝ h₀ : 1 < x h₁ : logb 2 (logb 8 x) = logb 8 (logb 2 x) ⊢ logb 2 x ^ 2 = 27,"```lean
+let y := Real.logb 2 x
+have hy : 0 < y := Real.logb_pos h₀ (by norm_num)
+have hx_ne_one : x ≠ 1 := by linarith
+have h₁' : Real.logb 2 (y / Real.logb 2 8) = Real.logb 8 y := by
+  rw [Real.logb_eq_logb_div_logb 8 2 x]
+  exact h₁
+  all_goals { try { linarith } }
+  exact hx_ne_one
+  all_goals { try {norm_num} }
+have h_log2_8 : Real.",,,,
+aime_1988_p3,B,google/gemini-2.5-pro,1,baseline,unfocused_goals,129.12,0000gn/T/tmpu4uouuwq.lean:13:95: error: unsolved goals x : ℝ h₀ : 1 < x h₁ : logb 2 (logb 8 x) = logb 8 (logb 2 x) ⊢ logb 2 x ^ 2 = 27,"```lean
+let y := Real.logb 2 x
+change y ^ 2 = 27
+have hx_pos : 0 < x := lt_trans (by norm_num) h₀
+have hy_pos : 0 < y := by
+  apply (Real.logb_pos_iff _).mpr h₀
+  norm_num
+have hy3_pos : 0 < y / 3 := div_pos hy_pos (by norm_num)
+have h_8_is_2_pow_3 : (8 : ℝ) = 2 ^ 3 := by norm_num
+have h_log8x_eq_y_div_3 : Real.logb 8 x = y /",,,,
+aime_1991_p1,B,google/gemini-2.5-pro,0,baseline,unfocused_goals,145.3,0000gn/T/tmpdo_4m1mg.lean:13:62: error: unsolved goals x y : ℕ h₀ : 0 < x ∧ 0 < y h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 * y + x * y ^ 2,"```lean
+  have h₂_rw : x * y * (x + y) = 880 := by
+    rw [pow_two, pow_two, ← right_distrib, mul_assoc, mul_comm x y, ← mul_assoc]
+    exact h₂
+  have h_sum := h₁
+  have h_prod := h₂_rw
+  have h_or : x + y = 16 ∧ x * y = 55 ∨ x + y = 55 ∧ x * y = 16 := by
+    apply (Nat.add_mul_eq_and_eq 71 880 16 55).mp
+    simp only [true_",,,,
+aime_1991_p1,B,google/gemini-2.5-pro,1,baseline,unfocused_goals,129.12,0000gn/T/tmpqd4lkq_h.lean:13:62: error: unsolved goals x y : ℕ h₀ : 0 < x ∧ 0 < y h₁ : x * y + (x + y) = 71 h₂ : x ^ 2 * y + x * y ^ 2,"```lean
+let s := x + y
+let p := x * y
+have h_s_add_p : s + p = 71 := by
+  rw [add_comm]
+  exact h₁
+have h_s_mul_p : s * p = 880 := by
+  rw [mul_comm, ← h₂, add_mul, mul_assoc, mul_assoc, ← pow_two, ← pow_two]
+  ring
+have h_s_p_or : (s = 16 ∧ p = 55) ∨ (s = 55 ∧ p = 16) := by
+  have h_poly := (show (s + p) * s -",,,,
+aime_1996_p5,B,google/gemini-2.5-pro,1,baseline,unfocused_goals,129.12,"0000gn/T/tmpbo_swv18.lean:15:74: error: unsolved goals a b c r s t : ℝ f g : ℝ → ℝ h₀ : ∀ (x : ℝ), f x = x ^ 3 + 3 * x ^ 2 + 4 * x - 1","```lean
+  have h_ne_ab : a ≠ b := by intro h; simp_all only [List.pairwise_cons, List.mem_cons, List.mem_singleton, not_false_iff, true_and, List.Pairwise.nil, h, false_or, true_or]
+  have h_ne_ac : a ≠ c := by intro h; simp_all only [List.pairwise_cons, List.mem_cons, List.mem_singleton, not_false_iff, true_and, List.Pairwise.nil, h, or_false]
+  have h_ne_bc : b ≠ c := by intro h; simp_all only [List.pairwise_cons, List.mem",,,,
+algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,D,google/gemini-2.5-pro,1,baseline,hallucinated_lemma,129.29,n:17:16: error(lean.unknownIdentifier): Unknown constant `Real.am_gm_inequality` /var/folders/np/g_hjvs7913sbbb7sc2xyjl180000gn/T/tmpxpm,"intro x hx
+suffices Real.sqrt 2 ≤ x + 1 / (2 * x) by
+  linarith
+have am_gm := Real.am_gm_inequality x (1 / (2 * x)) hx.le (by positivity)
+rw [mul_one_div] at am_gm
+rw [div_self_of_root] at am_gm
+· norm_num at am_gm
+  exact am_gm
+· linarith",,,,
+algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x,D,google/gemini-2.5-pro,2,baseline,unfocused_goals,141.2,"0000gn/T/tmp0resjw_k.lean:13:52: error: unsolved goals ⊢ ∀ x > 0, 2 - √2 ≥ 2 - x - 1 / (2 * x) ","```lean
+intro x hx
+suffices h : x + 1 / (2 * x) ≥ sqrt 2
+· linarith
+apply le_trans _ h
+have h_am_gm := Real.geom_mean_le_arith_mean_list ![x, 1 / (2 * x)]
+simp only [List.sum_cons, List.ofList_cons, List.prod_cons, List.sum_nil, List.prod_nil,
+  List.length_cons, List.length_nil, card_cons, card_nil, Nat.ofNat_succ, Nat.ofNat_zero,
+  show 1+1=2 from rfl] at h_am_gm
+rw",,,,
+algebra_amgm_prod1toneq1_sum1tongeqn,F,google/gemini-2.5-pro,0,baseline,unfocused_goals,145.29,"0000gn/T/tmpoiqwau2p.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).","```lean
+by
+  rcases n.eq_zero_or_pos with rfl | hn_pos
+  · simp
+  · have n_cast_pos : (0 : ℝ) < n := by
+      exact_mod_cast hn_pos
+    let s := Finset.range n
+    have am_gm := Finset.geom_mean_le_arith_mean s a (fun i _ => h₀ i)
+    simp_rw [h₁, Finset.card_range, one_rpow] at am_gm
+    rw [le_div_iff n_cast_pos] at am_gm
+    exact le_of_mul_le_of_one_le_left am_gm (by exact",,,,
+algebra_amgm_prod1toneq1_sum1tongeqn,F,google/gemini-2.5-pro,2,baseline,unfocused_goals,141.2,"0000gn/T/tmp04le96xd.lean:14:83: error: unsolved goals a : ℕ → ℝ n : ℕ h₀✝ : ∀ (x : ℕ), 0 ≤ a x h₀ : (range n).prod a = 1 ⊢ (range n).","```lean
+by_cases hn : n = 0;
+· subst hn
+  simp
+· have hn_pos : 0 < n := Nat.pos_of_ne_zero hn
+  have hn_nonneg : (0 : ℝ) ≤ n := by exact_mod_cast Nat.zero_le n
+  have hn_cast_pos : (0 : ℝ) < n := by exact_mod_cast hn_pos
+  let s := Finset.range n
+  have hs_nonempty : s.Nonempty := by rwa [Finset.nonempty_range_iff]
+  have h_amgm := Finset.geom_mean_le_arith_mean s a (fun i _ => h₀ i)",,,,
+algebra_apb4leq8ta4pb4,F,google/gemini-2.5-pro,1,baseline,unfocused_goals,129.12,000gn/T/tmp1nqumwdw.lean:12:101: error: unsolved goals a b : ℝ h₀ : 0 < a ∧ 0 < b ⊢ (a + b) ^ 4 ≤ 8 * (a ^ 4 + b ^ 4) ,"```lean
+suffices h_g : (a + b) ^ 4 / 16 ≤ (a ^ 4 + b ^ 4) / 2 by
+  rw [div_le_div_iff] at h_g
+  · simp only [mul_one, one_mul] at h_g
+    rw [show 16 * (a ^ 4 + b ^ 4) = 8 * 2 * (a ^ 4 + b ^ 4) by ring] at h_g
+    rw [show (a + b) ^ 4 * 2 = 2 * (a + b) ^ 4 by ring] at h_g
+    apply (mul_le_mul_left (",,,,
+algebra_apb4leq8ta4pb4,F,google/gemini-2.5-pro,2,baseline,unfocused_goals,141.2,000gn/T/tmpwbhts8an.lean:12:101: error: unsolved goals a b : ℝ h₀ : 0 < a ∧ 0 < b ⊢ (a + b) ^ 4 ≤ 8 * (a ^ 4 + b ^ 4) ,"```lean
+  -- This inequality is a special case of Jensen's inequality for the convex function f(x) = x^4.
+  -- f((a+b)/2) ≤ (f(a) + f(b))/2
+  -- ((a+b)/2)^4 ≤ (a^4 + b^4)/2
+  -- (a+b)^4 / 16 ≤ (a^4 + b^4)/2
+  -- (a+b)^4 ≤ 8 * (a^4 + b^4)
+
+  -- We can also prove it by expanding and factoring.
+  -- The inequality is equivalent to 8*(a^4 + b^4) - (a+b)^4 ≥ 0.",,,,
