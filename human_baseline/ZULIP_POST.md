@@ -1,0 +1,75 @@
+# Zulip recruitment post
+
+> Ready to paste. Authored 2026-05-27. Submission deadline: **2026-06-01**.
+
+---
+
+**Title:** Help wanted — human Lean 4 tactic proofs for a CSE 290Q project (small, optional, credited)
+
+Hi all,
+
+For my CSE 290Q project I'm running a diagnostic study of how frontier general-purpose LLMs (Claude, GPT, Gemini) succeed and fail on **miniF2F-v2** (the Ospanov et al. 2025 corrected version of miniF2F).
+
+To validate my failure taxonomy and provide a human upper bound, I need **one
+human-written Lean 4 tactic proof per problem** for the 30 problems in my
+evaluation subset. The proofs go into the project report as a baseline and any
+contributor is credited by name.
+
+**The ask, in short**
+
+- Grab the attached **`problems.zip`** — it has 30 Lean 4 template files,
+  one per problem.
+- Pick one (or a few), write a tactic-mode proof of the listed `theorem`,
+  and DM it back.
+- Submit by **Monday 2026-06-01** — earlier is more useful (helps me avoid
+  duplicated effort on the same problem).
+
+**Rules so the proofs are useful as a baseline**
+
+1. **Must compile** against a recent Mathlib (I built against Lean v4.30.0 /
+   Mathlib master as of late May 2026). If your Mathlib version is much
+   older and a lemma name doesn't exist, DM me and I'll suggest an
+   alternative.
+2. **Tactic mode only.** No term-mode proofs.
+3. **No one-line closers** as the entire proof: a single
+   `decide` / `nlinarith` / `polyrith` / `omega` / `aesop` is not a valid
+   submission unless the goal is literally something `decide` was made for
+   (rare in this subset). Heavy tactics inside a structured proof are fine.
+4. **Keep it readable.** Soft cap: 50 lines. Use `have` / `calc` /
+   `induction` rather than chaining mega-tactics.
+5. **Don't change the statement.** The `theorem ... : ... := by` line is
+   fixed (it's exactly the v2c form from the dataset). Only fill in below
+   `:= by`.
+6. **One file per problem**, named exactly as in the template, with the
+   contributor's name in the top comment.
+
+**Why I'm asking on Zulip rather than just doing all 30 myself**
+
+I will write the rest myself, but multiple contributors makes the baseline
+more representative of how Lean writers actually approach these problems —
+which is the whole point of comparing model proofs against a human shape.
+
+**Credit**
+
+Every accepted submission gets the contributor's name in the project report
+and in a `CONTRIBUTORS.md` in the project repo. If you'd prefer a pseudonym
+or to be anonymous, just say so.
+
+**How to submit — Zulip DM only**
+
+Please DM the completed `.lean` file directly to me on Zulip with subject
+`[CSE290Q baseline] <problem name>`. I'll verify it compiles and confirm
+receipt.
+
+**Why DM and not a PR?** So no one sees other students' submissions before
+their own. Collected proofs stay on my machine during the project and only
+appear publicly in the final report appendix (with your attribution).
+
+**Questions / claim a problem**
+
+Reply in this thread with the problem name(s) you're working on so we don't
+duplicate effort. I'll keep a running list so people can see what's still
+available.
+
+Thanks!
+Mukund

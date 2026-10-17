@@ -1,0 +1,34 @@
+## Lean / Lake
+.lake/
+build/
+*.olean
+*.ilean
+*.trace
+lakefile.olean
+
+## Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+## Local secrets (API keys etc.)
+.env
+.env.local
+
+## Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+## Run outputs (keep dir, ignore contents)
+harness/results/*
+!harness/results/.gitkeep
+
+## Local dataset cache (fetched on demand)
+datasets/_FETCHED_COMMIT
+
+## Private staging for collected human proofs.
+## Public repo only ships templates (with `sorry`); filled proofs land here
+## so students can't see each other's submissions during collection.
+human_baseline/_private/

@@ -1,0 +1,10 @@
+{"problem": "aime_1988_p3", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 39.04, "error": ""}
+{"problem": "aime_1991_p1", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 37.76, "error": ""}
+{"problem": "aime_1996_p5", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 37.86, "error": ""}
+{"problem": "algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 35.36, "error": ""}
+{"problem": "algebra_amgm_prod1toneq1_sum1tongeqn", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 39.91, "error": ""}
+{"problem": "algebra_apb4leq8ta4pb4", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 30.88, "error": ""}
+{"problem": "algebra_sqineq_2unitcircatblt1", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 32.4, "error": ""}
+{"problem": "amc12_2001_p2", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 32.92, "error": ""}
+{"problem": "amc12a_2008_p4", "proof": "", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "", "elapsed_s": 37.09, "error": ""}
+{"problem": "amc12a_2009_p5", "proof": "have hx : x = 5 := by\n  have h := h\u2080\n  ring_nf at h\n  simpa using h\nhave hx3 : x ^ 3 = 125 := by\n  simpa [hx] using (by norm_num : (5 : \u211d) ^ 3 = 125)\nexact Or.inr (Or.inr (Or.inr (Or.inl hx3)))", "model": "gpt-5", "seed": 2, "condition": "baseline", "raw_response": "```lean\n  have hx : x = 5 := by\n    have h := h\u2080\n    ring_nf at h\n    simpa using h\n  have hx3 : x ^ 3 = 125 := by\n    simpa [hx] using (by norm_num : (5 : \u211d) ^ 3 = 125)\n  exact Or.inr (Or.inr (Or.inr (Or.inl hx3)))\n```", "elapsed_s": 19.35, "error": ""}

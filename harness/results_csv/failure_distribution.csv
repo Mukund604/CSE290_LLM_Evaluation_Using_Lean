@@ -1,0 +1,12 @@
+cat_hallucinated_lemma,cat_heavy_tactic_failed,cat_other,cat_sorry_present,cat_tactic_failed,cat_timeout,cat_type_mismatch,cat_unfocused_goals,model,n_failures,stratum
+,2,1,,3,,,3,anthropic/claude-opus-4.7,9,B
+,,,1,4,,,1,anthropic/claude-opus-4.7,6,C
+,1,,,1,,,,anthropic/claude-opus-4.7,2,D
+,,,1,,,,2,anthropic/claude-opus-4.7,3,F
+1,,,,,,,8,google/gemini-2.5-pro,9,B
+1,,,,,,,2,google/gemini-2.5-pro,3,D
+,,,,,,,6,google/gemini-2.5-pro,6,F
+4,4,,,,1,,,gpt-5.4,9,B
+6,3,,,,,,,gpt-5.4,9,C
+,1,,,,,2,,gpt-5.4,3,D
+,,,,,,2,1,gpt-5.4,3,F

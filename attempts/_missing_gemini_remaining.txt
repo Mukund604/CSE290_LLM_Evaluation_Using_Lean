@@ -1,0 +1,10 @@
+induction_sum2kp1npqsqm1
+mathd_algebra_10
+mathd_algebra_119
+mathd_algebra_22
+mathd_algebra_251
+mathd_algebra_433
+mathd_numbertheory_132
+mathd_numbertheory_252
+mathd_numbertheory_81
+numbertheory_sqmod3in01d

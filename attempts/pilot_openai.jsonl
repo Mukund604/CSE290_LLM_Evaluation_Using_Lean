@@ -1,0 +1,1 @@
+{"problem": "mathd_algebra_22", "proof": "simp [Real.logb, Real.logr, pow_succ, pow_two, pow_mul]", "model": "gpt-5.2", "seed": 0, "condition": "baseline", "raw_response": "```lean\n  simp [Real.logb, Real.logr, pow_succ, pow_two, pow_mul]\n```", "elapsed_s": 5.27, "error": ""}
