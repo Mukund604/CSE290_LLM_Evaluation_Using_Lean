@@ -100,3 +100,7 @@ Input formats and the full workflow are in [`harness/README.md`](harness/README.
 ## Dataset
 
 miniF2F-v2 by Ospanov et al. (2025), [github.com/roozbeh-yz/miniF2F_v2](https://github.com/roozbeh-yz/miniF2F_v2). This repo uses the competition form (v2c) by default.
+
+## License
+
+The code in this repo is MIT licensed (see `LICENSE`). The miniF2F-v2 problems in `datasets/` keep their original license from the miniF2F-v2 authors.
