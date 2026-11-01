@@ -1,7 +1,7 @@
 # Diagnosing How Frontier LLMs Fail at Lean
 
 **A miniF2F-v2 evaluation harness for frontier LLMs on formal theorem proving in Lean 4.**
-Mukund Ojha, UC Santa Cruz · Paper under review, 2026
+Mukund Ojha, UC Santa Cruz · Paper under review, 2026 · [Read the PDF](https://mukundojha.dev/papers/frontier-llms-fail-at-lean.pdf)
 
 Every proof a model writes is checked by the Lean 4 compiler against Mathlib. Nothing is scored by string matching or by another model, so a proof either compiles or it fails.
 
